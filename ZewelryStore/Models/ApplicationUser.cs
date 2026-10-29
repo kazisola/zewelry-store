@@ -1,6 +1,9 @@
-﻿namespace ZewelryStore.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace ZewelryStore.Models
 {
-    public class ApplicationUser
+    public class ApplicationUser : IdentityUser
     {
+        public ICollection<Order>? Orders { get; set; }
     }
 }
