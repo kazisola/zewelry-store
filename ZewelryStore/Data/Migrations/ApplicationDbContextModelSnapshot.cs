@@ -393,6 +393,10 @@ namespace ZewelryStore.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -406,7 +410,7 @@ namespace ZewelryStore.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Product");
+                    b.ToTable("Products");
 
                     b.HasData(
                         new
@@ -414,6 +418,7 @@ namespace ZewelryStore.Data.Migrations
                             ProductId = 1,
                             CategoryId = 1,
                             Description = "Elegant 18K gold engagement ring featuring a brilliant-cut diamond.",
+                            ImageUrl = "https://via.placeholder.com/150",
                             Name = "Classic Gold Engagement Ring",
                             Price = 1299.99m,
                             Stock = 15
@@ -423,6 +428,7 @@ namespace ZewelryStore.Data.Migrations
                             ProductId = 2,
                             CategoryId = 2,
                             Description = "Beautiful sterling silver necklace featuring a lustrous freshwater pearl.",
+                            ImageUrl = "https://via.placeholder.com/150",
                             Name = "Sterling Silver Pearl Necklace",
                             Price = 249.99m,
                             Stock = 25
@@ -432,6 +438,7 @@ namespace ZewelryStore.Data.Migrations
                             ProductId = 3,
                             CategoryId = 3,
                             Description = "Luxurious bracelet featuring sparkling diamonds set in 18K gold.",
+                            ImageUrl = "https://via.placeholder.com/150",
                             Name = "Diamond Tennis Bracelet",
                             Price = 1899.99m,
                             Stock = 8
@@ -441,6 +448,7 @@ namespace ZewelryStore.Data.Migrations
                             ProductId = 4,
                             CategoryId = 4,
                             Description = "Classic stud earrings featuring vibrant natural rubies.",
+                            ImageUrl = "https://via.placeholder.com/150",
                             Name = "Ruby Stud Earrings",
                             Price = 499.99m,
                             Stock = 20
@@ -450,6 +458,7 @@ namespace ZewelryStore.Data.Migrations
                             ProductId = 5,
                             CategoryId = 2,
                             Description = "Elegant 18K gold pendant featuring a stunning blue sapphire.",
+                            ImageUrl = "https://via.placeholder.com/150",
                             Name = "Sapphire Gold Pendant",
                             Price = 799.99m,
                             Stock = 12
@@ -459,6 +468,7 @@ namespace ZewelryStore.Data.Migrations
                             ProductId = 6,
                             CategoryId = 3,
                             Description = "Minimalist sterling silver chain bracelet suitable for everyday wear.",
+                            ImageUrl = "https://via.placeholder.com/150",
                             Name = "Silver Chain Bracelet",
                             Price = 89.99m,
                             Stock = 40
@@ -468,6 +478,7 @@ namespace ZewelryStore.Data.Migrations
                             ProductId = 7,
                             CategoryId = 4,
                             Description = "Beautiful diamond halo earrings crafted with premium platinum.",
+                            ImageUrl = "https://via.placeholder.com/150",
                             Name = "Diamond Halo Earrings",
                             Price = 1499.99m,
                             Stock = 10
