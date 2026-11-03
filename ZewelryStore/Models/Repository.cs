@@ -1,8 +1,17 @@
-﻿namespace ZewelryStore.Models
+﻿using Microsoft.EntityFrameworkCore;
+using ZewelryStore.Data;
+
+namespace ZewelryStore.Models
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-
+        protected ApplicationDbContext _context { get; set; }
+        private DbSet<T> _dbSet { get; set; }
+        public Repository(ApplicationDbContext context)
+        {
+            _context = context;
+            _dbSet = context.Set<T>();
+        }
         public Task AddAsync(T entity)
         {
             throw new NotImplementedException();
