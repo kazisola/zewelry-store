@@ -24,7 +24,7 @@ namespace ZewelryStore.Models
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await _dbSet.ToListAsync()
+            return await _dbSet.ToListAsync();
         }
 
         public Task<T> GetByIdAsync(int id, QueryOptions<T> options)
