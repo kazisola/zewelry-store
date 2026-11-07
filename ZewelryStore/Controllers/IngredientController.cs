@@ -44,7 +44,7 @@ namespace ZewelryStore.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            return View(await ingredients.GetByIdAsync(id, new QueryOptions<Ingredient>() { Includes = "ProductIngredient.Product" }));
+            return View(await ingredients.GetByIdAsync(id, new QueryOptions<Ingredient>() { Includes = "ProductIngredients.Product" }));
         }
 
         [HttpPost]
