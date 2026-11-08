@@ -1,0 +1,28 @@
+﻿@using ZewelryStore.Models
+@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h3 class="mb-4">Products available</h3>
+
+<div class="row">
+    @foreach(Product prod in Model)
+    {
+        <div class="col-md-4">
+            <form asp-action="delete" asp-controller="product" method="post">
+                <input type="hidden" name="id" value="@prod.ProductId" />
+                <div class="card" style="width: 22rem;">
+                    <img src="@Url.Content(prod?.ImageUrl)" alt="product-image" />
+                    <div class="card-body">
+                        <h5 class="card-title">@prod.Name</h5>
+                        <p class="card-text">@prod.Description</p>
+                        <p class="card-text">@prod.Price.ToString("C")</p>
+                        <p class="card-text">Quantity in Stock: @prod.Stock</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    }
+</div>
