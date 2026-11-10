@@ -5,17 +5,28 @@
     ViewBag.Title = $"Edit {Model.Name} Material";
 }
 
-<h3>Edit @Model.Name Material</h3>
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="border-bottom pb-2 mb-4">
+            <h1 class="h3 fw-normal mb-0">Edit @Model.Name Material</h1>
+        </div>
 
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="IngredientId" />
-    <div class="form-group">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IngredientId" />
+
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger small"></span>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2">
+                <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-4">Back to List</a>
+                <button type="submit" class="btn btn-warning rounded-pill px-4">Save</button>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <input type="submit" value="Save" class="btn btn-primary" />
-        <a asp-action="Index" class="btn btn-default">Back to List</a>
-    </div>
-</form>
+</div>
