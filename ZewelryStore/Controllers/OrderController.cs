@@ -125,7 +125,7 @@ namespace ZewelryStore.Controllers
                 order.OrderItems.Add(new OrderItem
                 {
                     ProductId = item.ProductId,
-                    Quanitity = item.Quantity,
+                    Quantity = item.Quantity,
                     Price = item.Price
                 });
             }
