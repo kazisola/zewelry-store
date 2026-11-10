@@ -83,5 +83,21 @@ namespace ZewelryStore.Controllers
             return RedirectToAction("Create", model);
         }
 
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Cart()
+        {
+
+            // Retrieve the OrderViewModel from session or other state management
+            var model = HttpContext.Session.Get<OrderViewModel>("OrderViewModel");
+
+            if (model == null || model.OrderItems.Count == 0)
+            {
+                return RedirectToAction("Create");
+            }
+
+            return View(model);
+        }
     }
 }
