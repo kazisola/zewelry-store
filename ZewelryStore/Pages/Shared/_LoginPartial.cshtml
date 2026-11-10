@@ -5,11 +5,24 @@
 
 <ul class="navbar-nav">
 
+    @{
+        var cart = Context.Session.Get<OrderViewModel>("OrderViewModel");
+        var cartCount = cart?.OrderItems?.Sum(item => item.Quantity) ?? 0;
+    }
+
     <li class="nav-item">
-        <a class="nav-link text-dark"
+        <a class="nav-link text-dark position-relative d-inline-flex align-items-center gap-2"
            asp-controller="Order"
            asp-action="Cart">
-            <i class="bi bi-cart3"></i> Cart
+
+            <i class="bi bi-cart3 fs-5"></i>
+
+            @if (cartCount > 0)
+            {
+                <span class="badge rounded-pill bg-danger">
+                    @cartCount
+                </span>
+            }
         </a>
     </li>
 
