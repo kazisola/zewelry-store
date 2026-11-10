@@ -50,7 +50,7 @@ app.MapRazorPages()
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Product}/{action=Index}/{id?}"
+    pattern: "{controller=Order}/{action=Create}/{id?}"
     );
 
 app.Run();

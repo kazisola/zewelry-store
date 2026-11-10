@@ -21,7 +21,6 @@ namespace ZewelryStore.Controllers
             _orders = new Repository<Order>(context);
         }
 
-        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Create()
         {
