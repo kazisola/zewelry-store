@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ZewelryStore.Data;
 using ZewelryStore.Models;
@@ -18,6 +19,21 @@ namespace ZewelryStore.Controllers
             _userManager = userManager;
             _products = new Repository<Product>(context);
             _orders = new Repository<Order>(context);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+
+            var model = HttpContext.Session.Get<OrderViewModel>("OrderViewModel") ?? new OrderViewModel
+            {
+                OrderItems = new List<OrderItemViewModel>(),
+                Products = await _products.GetAllAsync()
+            };
+
+
+            return View(model);
         }
 
     }
